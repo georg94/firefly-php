@@ -26,8 +26,6 @@ class router {
         // run the bootstrap
         $this->loadRes($this->paths->get("app")."bootstrap.php");
         
-                log::info("system inited");
-        
         // - - - - - - - - - - - - - - -
         // Start process
         $this->performRoute();

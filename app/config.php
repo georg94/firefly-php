@@ -26,11 +26,6 @@ conf::set("__BASE_URL" , "");
 
 
 // - - - - - - - - - - - - - - - - - 
-// Set log level (true : all | false : only errors)
-conf::set("debug",true);
-
-
-// - - - - - - - - - - - - - - - - - 
 // Define Basic Paths
 conf::set("__APP_DIR"        , "../app/");
 conf::set("__HELPER_DIR"     , conf::get("__APP_DIR") . "helper/");
@@ -38,4 +33,10 @@ conf::set("__PLUGIN_DIR"     , conf::get("__APP_DIR") . "plugins/");
 conf::set("__STORAGE_DIR"    , conf::get("__APP_DIR") . "storage/");
 conf::set("__CONTROLLER_DIR" , conf::get("__APP_DIR") . "controller/");
 conf::set("__LOG_DIR"        , conf::get("__STORAGE_DIR") . "logs/");
+
+
+// - - - - - - - - - - - - - - - - - 
+// Set log level (true : all | false : only errors)
+conf::set("debug",true);
+
 ?>

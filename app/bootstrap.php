@@ -41,10 +41,6 @@ route::add(array("path"       => "gallery",
                  "controller" => "shows",
                  "plugin"     => "frontend"));
 
-route::add(array("path"       => "wtf",
-                 "controller" => "shows",
-                 "plugin"     => "rest"));
-
 
 // - - - - - - - - - - - - - - - - - 
 // Get actual Call route 
