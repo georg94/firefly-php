@@ -6,14 +6,12 @@ class frontend {
     private $tpl;
     private $controller; 
     
-    public function __construct($obj) {
+    public function __construct() {
         $this->tpl   = helper::getInstance("template");
-        $this->data = $obj->data;
-        $this->renderOutput($this->data);
     }
     
-    private function renderOutput() {
-        echo $this->tpl->render($this->data);
+    public function renderTemplate($tpl) {
+        echo $this->tpl->render($tpl);
     }
     
 }

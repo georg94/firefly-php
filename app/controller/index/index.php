@@ -2,10 +2,8 @@
 
 class index {
     
-    public $data = "test";
-    
-    public function __construct() {
-        
+    public function __construct($objPlugin) {
+        $objPlugin->renderTemplate("index");
     }
     
 }

@@ -26,6 +26,7 @@ class router {
         // run the bootstrap
         $this->loadRes($this->paths->get("app")."bootstrap.php");
         
+        
         // - - - - - - - - - - - - - - -
         // Start process
         $this->performRoute();
@@ -35,7 +36,7 @@ class router {
     private function performRoute() {
         $this->loadRes($this->paths->get("controller") . route::$controller . "/" . route::$controller . ".php");
         $this->loadRes($this->paths->get("plugin") . route::$plugin . "/" . route::$plugin . ".php");
-        new route::$plugin(new route::$controller());
+        //new route::$plugin(new route::$controller());
         new route::$controller(new route::$plugin());
     }
     
