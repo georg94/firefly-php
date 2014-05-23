@@ -231,10 +231,9 @@
     <h2>Plugins</h2>
     <pre>
       Plugins , or better said frontend plugins are meant to decide what output handling should be used on the data that your <b>controller</b> provides.
-      It will be inited inside the router and get a new instance of the <b>controller</b> that is registered onto the called path. It should be build up
-      in a common way to make it possible to be used with multiple different <b>controllers</b>.
+      It will be inited inside the router and presented to the <b>controller</b> as __construct() param. You can change its build-up free since the
+      methods just must be standardized to be usefull for all <b>controllers</b>.
       
-      Due its free structure (only the __construct method is forced) you are free to build it up in the structure you like/need.
       
       To create a new plugin you hav to create it like the following explaination.
       
@@ -247,11 +246,8 @@
          - <b>app/plugins/frontend/frontend.php</b>
          
       3. Create a class inside the file you just created at 2. and fill it with a class
-         that has the same name like your controller , in this example
+         that has the same name like your plugin , in this example
          - <b>class frontend {.....}</b>
-      
-      4. Make the __construct function of the class you just created at 3. accept an
-         object/instance of the registerd <b>controller</b>.
       
       
       Now you just hav to register the <b>plugin</b> inside the bootstrap.php onto the path you wanne use it. So you simply can write f.e
@@ -265,8 +261,8 @@
     <hr>
     <h2>Controller</h2>
     <pre>
-      The controller contains your main business logic. You can build it up completly free, and provide public functions for the plugin
-      so the plugin can format/create output.
+      The controller contains your main business logic. You can build it up completly free, besides the fact you need a __construct()
+      method that inits the processing including it must accept <b>plugin</b>-instance as __construct param.
       
       To create a new controller you hav to create it like the following explaination.
       
@@ -282,10 +278,11 @@
          that has the same name like your controller , in this example
          - <b>class index {.....}</b>
       
+      4. Make the __construct function of the class you just created at 3. accept an
+         object/instance of the registerd <b>plugin</b>.
       
-      In case you have a plugin that needs no further controller code, just create an empty controller and register it to the path you
-      want to use the <b>plugin</b>. You simply can ignore the controller instance. This only should be done if NO business logic is needed.
-      The <b>plugin</b> should <b>NOT</b> replace the <b>controller</b>.
+      In case you have a plugin that needs no further controller code, just create an empty controller that only handles the plugin basic
+      output calls and register it to the path you.
       
     </pre>
     <hr>
