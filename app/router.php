@@ -36,6 +36,7 @@ class router {
         $this->loadRes($this->paths->get("controller") . route::$controller . "/" . route::$controller . ".php");
         $this->loadRes($this->paths->get("plugin") . route::$plugin . "/" . route::$plugin . ".php");
         new route::$plugin(new route::$controller());
+        new route::$controller(new route::$plugin());
     }
     
     
