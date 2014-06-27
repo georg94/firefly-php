@@ -50,7 +50,5 @@ route::getRoute();
 // Init Logger modell/class
 log::init();
 
-
-
 ?>
 
