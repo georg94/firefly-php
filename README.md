@@ -360,5 +360,6 @@ In our example we gonne create the helper **"upload"**.
 
   2. Create a class inside the in 1. created file wich has the
   same naming plus the string **"Mapper"** 
-    - ``` class {name}Mapper { .... }        //for example: class showsMapper { .... }
+    - ```php
+      class {name}Mapper { .... }        //for example: class showsMapper { .... }
     ```
