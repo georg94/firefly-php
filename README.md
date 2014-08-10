@@ -9,8 +9,8 @@ A simple and smallweight path routing framework to build any kind of web applica
   1. Clone the current version of firefly-php from https://github.com/singhtreehouse/firefly-php.git .
   2. Change the **app/config.php** for your needs.
   3. Check out the example controller **app/controller/index/index.php**
-  4. Check out the example plugin **app/controller/index/index.php**
-  5. Begin develop .) for further information check the following topics or mail me (singh@devilcode.org) 
+  4. Check out the example plugin **app/plugins/frontend/frontend.php**
+  5. Begin develop :smile: for further information check the following topics or mail me (singh@devilcode.org) 
 
 ## File-Structure
 
