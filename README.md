@@ -38,7 +38,7 @@ single call files out of their context. The **app/** directory includes the foll
 
 **- app/controller/**
 The controller directory basicly includes your business logic , build up in a structure like:
-```php
+```php <?php
 app/controller/{YOUR_CONTROLLER_NAME}/{YOUR_CONTROLLER_NAME}.php
 ```
 
@@ -46,14 +46,14 @@ app/controller/{YOUR_CONTROLLER_NAME}/{YOUR_CONTROLLER_NAME}.php
 The helper directory basicly includes all your snippets you use on multiple controller/plugins and
 the **instance.php** wich is needed to use your helper.
 The structure is build up like:
-```php
+```php <?php
 app/helper/instance.php
 app/helper/{YOUR_HELPER_NAME}/{YOUR_HELPER_NAME}.php
 ```
 
 **- app/plugins/**
 The plugins directory basicly includes your frontend plugin logic , build up in a structure like:
-```php
+```php <?php
 app/plugins/{YOUR_PLUGIN_NAME}/{YOUR_PLUGIN_NAME}.php
 ```
 
@@ -69,18 +69,18 @@ paths, database login data , etc.
 
 If you want to add other data into configuration simply place a call like the following pattern into your **config.php**
 
-```php
+```php <?php
 config::set("{name}","{value}");
 ```
 
 Since the config is handled within a static class its global accessable and you can get all config data just using
 the following pattern:
 
-```php
+```php <?php
 config::get("{name}");
 ```
 
-PS: If you enable the debug mode (```php conf::set("debug",true)```) the logger will log **info** and **warnings** too.
+PS: If you enable the debug mode (```php <?php conf::set("debug",true)```) the logger will log **info** and **warnings** too.
     On default (debug = false) it will only log errors.
 
 ## bootstrap php
@@ -113,12 +113,12 @@ This file contains system required models/classes. I will explain them one for o
   The calls are simple as following:
 
   **Setter**
-  ```php
+  ```php <?php
   conf::set("{name}","{value}")
   ```
 
   **Getter**
-  ```php
+  ```php <?php
   conf::get("{name}")
   ```
 
@@ -128,7 +128,7 @@ This file contains system required models/classes. I will explain them one for o
   $_REQUEST , $_GET , $_POST via a simple call, and implements some santitations. It is inited
   inside the bootstrap.php. The usage is simple as following:
 
-  ```php
+  ```php <?php
   params::get("{name}")                         // returns $_REQUEST["{name}"] or false
   params::get("{name}","{type}")                // returns $_{type}["{name}"] or false. Allowed types are get and post
   params::get("{name}","{type}","{sanitation}") // returns $_{type}["{name}"] after using {santitation} or false.
@@ -140,7 +140,7 @@ This file contains system required models/classes. I will explain them one for o
   or **helper** wich has a dependency to another of this, or simply makes no sense without one of those specific, you should
   add a dependency into your file. This is really simple. Just add at the top of your file a call like the following pattern.
 
-  ```php
+  ```php <?php
   depends::on(array("{type}:{name}")) // Example depends::on{array("helper:paths")}
   ```
 
@@ -154,12 +154,12 @@ This file contains system required models/classes. I will explain them one for o
 
   The route model/class is static and used ro register callable routes same as the system uses it to find out wich
   **controller**/**plugin** to load at a call. The call to get the actual route is inside the bootstrap.php
-  below the **route::add** calls. This is important! Dont place ```php route::add ``` calls below the ```php route::getRoute ```
+  below the **route::add** calls. This is important! Dont place ```php <?php route::add ``` calls below the ```php <?php route::getRoute ```
   or they gonne be ignored.
 
   An simple example for an **route::add** call looks like following:
 
-  ```php
+  ```php <?php
   route::add(array("path"       => "test",
                    "controller" => "foo",
                    "plugin"     => "bar"));**
@@ -185,7 +185,7 @@ This file contains system required models/classes. I will explain them one for o
   The log model/class is a simple logger class. On default it only logs errors, bug if you change the config flag **"debug"** on **"true"**
   it will log **info** and **warning** too .It contains 3 public methods to be called. These are:
 
-  ```php
+  ```php <?php
   log::info("{msg}")         // To log simple informations , gud for debugging
   log::warning("{msg}")      // To log semi critical informations 
   log::error("{msg}")        // To log critical errors, these will be loged even if conf-debug = false;
@@ -203,7 +203,7 @@ as __construct() param.
 The instance file includes a static class to get instances of your helpers. Its meant as basic for the helpers. It consists
 of two public callable methods:
 
-```php
+```php <?php
 helper::getInstance("{helper_to_call}")        //returns a instance of {helper_to_call} wich will be cached and redelivered on same call
 helper::getSingleInstance("{helper_to_call}")  //returns a non-cached instance of {helper_to_call} that can be used in its own context
 ```
@@ -226,7 +226,7 @@ In our example we gonne create the plugin **"frontend"**.
 
 3. Create a class inside the file you just created at 2. and fill it with a class
    that has the same name like your plugin , in this example
-   - ```php class frontend {.....} ```
+   - ```php <?php class frontend {.....} ```
 
 Now you just hav to register the **plugin** inside the bootstrap.php onto the path you wanne use it. So you simply can write f.e
 a plugin for. Some simple examples:
@@ -252,7 +252,7 @@ In our example we gonne create the controller **"index"**.
 
 3. Create a class inside the file you just created at 2. and fill it with a class
    that has the same name like your controller , in this example
-   - ```php class index {.....} ```
+   - ```php <?php class index {.....} ```
 
 4. Make the __construct function of the class you just created at 3. accept an
    object/instance of the registerd **plugin**.
@@ -267,12 +267,12 @@ other helpers.
 
 To call a helper you got two different public methods given by **instance.php**
 
-1. ```php helper::getInstance("{name}"); ```
+1. ```php <?php helper::getInstance("{name}"); ```
   - This will return an instance of the helper {name}. If the helper allready got called once, it will return a static cached object.
     This is usefull if you dont need a single instance for every call , or even if you need especially the same object again like
     a database class including the connection.
 
-2. ```php helper::getSingleInstance("{name}"); ```
+2. ```php <?php helper::getSingleInstance("{name}"); ```
   - This will return an instance of the helper {name}. The difference to helper::getInstance("{name}") simply is that you will recieve
     a new instance of the helper {"name"} instead of a cached one.
 
@@ -299,7 +299,7 @@ In our example we gonne create the helper **"upload"**.
   **config.php** the paths helper provides a simple method of getting those paths.
 
   To get a path via the paths helper use the following pattern:
-  - ```php helper::getInstance("paths")->get("{pathname}")     // for example helper::getInstance("paths")->("storage")```
+  - ```php <?php helper::getInstance("paths")->get("{pathname}")     // for example helper::getInstance("paths")->("storage")```
 
   All paths you add inside the config.php using the same naming pattern like the system basic paths can be looked up via the
   paths helper.
@@ -324,12 +324,12 @@ In our example we gonne create the helper **"upload"**.
     The database helper is a basic system helper (means its shipped with the basic version of firefly-php).
     It is meant for a better structured database usage. The followin explaination should show its usecase.
 
-    The dbMapper gets called like every other helper. It provides one public function to use - ```php get("{param}")```. The function expects one string as parameter.
+    The dbMapper gets called like every other helper. It provides one public function to use - ```php <?php get("{param}")```. The function expects one string as parameter.
     The thought behind this is that you never need all database depending functions at once. You can split them by tables / context. So what this helper
     should do is deliver a instance of the **{name}Mapper** class inside **app/helper/dbMapper/tables/** directory. In the followin example we assume the existenz
     of the **"showsMapper"** inside the **tables/** directory.
 
-    ```php
+    ```php <?php
     helper::getInstance("dbMapper")->get("shows");
     ```
 
@@ -344,4 +344,4 @@ In our example we gonne create the helper **"upload"**.
 
     2. Create a class inside the in 1. created file wich has the
     same naming plus the string **"Mapper"** 
-      - ```php class {name}Mapper { .... }        //for example: class showsMapper { .... } ```
+      - ```php <?php class {name}Mapper { .... }        //for example: class showsMapper { .... } ```
