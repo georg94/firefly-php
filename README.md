@@ -312,7 +312,8 @@ In our example we gonne create the helper **"upload"**.
   **config.php** the paths helper provides a simple method of getting those paths.
 
   To get a path via the paths helper use the following pattern:
-  - ``` helper::getInstance("paths")->get("{pathname}")     // for example helper::getInstance("paths")->("storage")
+  - ```php
+  helper::getInstance("paths")->get("{pathname}")     // for example helper::getInstance("paths")->("storage")
   ```
 
   All paths you add inside the config.php using the same naming pattern like the system basic paths can be looked up via the
