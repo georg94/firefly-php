@@ -12,8 +12,7 @@ A simple and smallweight path routing framework to build any kind of web applica
   4. Check out the example plugin **app/plugins/frontend/frontend.php**
   5. Begin develop :smile:
 
-
-  For further information check the following topics or mail me (singh@devilcode.org) 
+For further information check the following topics or mail me (singh@devilcode.org) 
 
 ## File-Structure
 
