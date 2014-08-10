@@ -85,7 +85,7 @@ the following pattern:
   config::get("{name}");
 ```
 
-PS: If you enable the debug mode (```php conf::set("debug",true)```) the logger will log **info** and **warnings** too.
+PS: If you enable the debug mode (``` conf::set("debug",true)```) the logger will log **info** and **warnings** too.
     On default (debug = false) it will only log errors.
 
 ## bootstrap php
@@ -164,7 +164,7 @@ This file contains system required models/classes. I will explain them one for o
 
   The route model/class is static and used ro register callable routes same as the system uses it to find out wich
   **controller**/**plugin** to load at a call. The call to get the actual route is inside the bootstrap.php
-  below the **route::add** calls. This is important! Dont place ```php route::add ``` calls below the ```php route::getRoute ```
+  below the **route::add** calls. This is important! Dont place ``` route::add ``` calls below the ``` route::getRoute ```
   or they gonne be ignored.
 
   An simple example for an **route::add** call looks like following:
@@ -239,7 +239,7 @@ In our example we gonne create the plugin **"frontend"**.
 
 3. Create a class inside the file you just created at 2. and fill it with a class
    that has the same name like your plugin , in this example
-   - ```php class frontend {.....} ```
+   - ``` class frontend {.....} ```
 
 Now you just hav to register the **plugin** inside the bootstrap.php onto the path you wanne use it. So you simply can write f.e
 a plugin for. Some simple examples:
@@ -338,7 +338,7 @@ In our example we gonne create the helper **"upload"**.
   The database helper is a basic system helper (means its shipped with the basic version of firefly-php).
   It is meant for a better structured database usage. The followin explaination should show its usecase.
 
-  The dbMapper gets called like every other helper. It provides one public function to use - ```php get("{param}")```. The function expects one string as parameter.
+  The dbMapper gets called like every other helper. It provides one public function to use - ``` get("{param}")```. The function expects one string as parameter.
   The thought behind this is that you never need all database depending functions at once. You can split them by tables / context. So what this helper
   should do is deliver a instance of the **{name}Mapper** class inside **app/helper/dbMapper/tables/** directory. In the followin example we assume the existenz
   of the **"showsMapper"** inside the **tables/** directory.
