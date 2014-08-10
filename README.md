@@ -47,7 +47,7 @@ The helper directory basicly includes all your snippets you use on multiple cont
 the **instance.php** wich is needed to use your helper.
 The structure is build up like:
 ```php
-app/helper/instance.php**
+app/helper/instance.php
 app/helper/{YOUR_HELPER_NAME}/{YOUR_HELPER_NAME}.php
 ```
 
@@ -299,7 +299,7 @@ In our example we gonne create the helper **"upload"**.
   **config.php** the paths helper provides a simple method of getting those paths.
 
   To get a path via the paths helper use the following pattern:
-  - **helper::getInstance("paths")->get("{pathname}")**     // for example helper::getInstance("paths")->("storage")
+  - ```php helper::getInstance("paths")->get("{pathname}")     // for example helper::getInstance("paths")->("storage")```
 
   All paths you add inside the config.php using the same naming pattern like the system basic paths can be looked up via the
   paths helper.
@@ -324,7 +324,7 @@ In our example we gonne create the helper **"upload"**.
     The database helper is a basic system helper (means its shipped with the basic version of firefly-php).
     It is meant for a better structured database usage. The followin explaination should show its usecase.
 
-    The dbMapper gets called like every other helper. It provides one public function to use - **"get("{param}")"**. The function expects one string as parameter.
+    The dbMapper gets called like every other helper. It provides one public function to use - ```php get("{param}")```. The function expects one string as parameter.
     The thought behind this is that you never need all database depending functions at once. You can split them by tables / context. So what this helper
     should do is deliver a instance of the **{name}Mapper** class inside **app/helper/dbMapper/tables/** directory. In the followin example we assume the existenz
     of the **"showsMapper"** inside the **tables/** directory.
@@ -339,9 +339,9 @@ In our example we gonne create the helper **"upload"**.
 
     To create a new Mapper use this instructions:
 
-      1. Create a file inside the subdirectory **tables/**
-        - **app/helper/dbMapper/tables/{name}Mapper.php**
+    1. Create a file inside the subdirectory **tables/**
+      - **app/helper/dbMapper/tables/{name}Mapper.php**
 
-      2. Create a class inside the in 1. created file wich has the
-      same naming plus the string **"Mapper"** 
-        - ```php class {name}Mapper { .... }        //for example: class showsMapper { .... } ```
+    2. Create a class inside the in 1. created file wich has the
+    same naming plus the string **"Mapper"** 
+      - ```php class {name}Mapper { .... }        //for example: class showsMapper { .... } ```
