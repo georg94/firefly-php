@@ -115,12 +115,12 @@ This file contains system required models/classes. I will explain them one for o
 
   The calls are simple as following:
 
-  ##### Setter
+##### Setter
   ```php <?php
     conf::set("{name}","{value}")
   ```
 
-  ##### Getter
+##### Getter
   ```php <?php
     conf::get("{name}")
   ```
