@@ -116,12 +116,15 @@ This file contains system required models/classes. I will explain them one for o
   The calls are simple as following:
 
 ##### Setter
-  ```php <?php
+
+  ```php
+  <?php
     conf::set("{name}","{value}")
   ```
 
 ##### Getter
-  ```php <?php
+  ```php
+  <?php
     conf::get("{name}")
   ```
 
@@ -131,7 +134,8 @@ This file contains system required models/classes. I will explain them one for o
   $_REQUEST , $_GET , $_POST via a simple call, and implements some santitations. It is inited
   inside the bootstrap.php. The usage is simple as following:
 
-  ```php <?php
+  ```php
+  <?php
     params::get("{name}")                         // returns $_REQUEST["{name}"] or false
     params::get("{name}","{type}")                // returns $_{type}["{name}"] or false. Allowed types are get and post
     params::get("{name}","{type}","{sanitation}") // returns $_{type}["{name}"] after using {santitation} or false.
@@ -143,7 +147,8 @@ This file contains system required models/classes. I will explain them one for o
   or **helper** wich has a dependency to another of this, or simply makes no sense without one of those specific, you should
   add a dependency into your file. This is really simple. Just add at the top of your file a call like the following pattern.
 
-  ```php <?php
+  ```php
+  <?php
     depends::on(array("{type}:{name}")) // Example depends::on{array("helper:paths")}
   ```
 
@@ -157,12 +162,13 @@ This file contains system required models/classes. I will explain them one for o
 
   The route model/class is static and used ro register callable routes same as the system uses it to find out wich
   **controller**/**plugin** to load at a call. The call to get the actual route is inside the bootstrap.php
-  below the **route::add** calls. This is important! Dont place ```php route::add ``` calls below the ```php <?php route::getRoute ```
+  below the **route::add** calls. This is important! Dont place ```php route::add ``` calls below the ```php route::getRoute ```
   or they gonne be ignored.
 
   An simple example for an **route::add** call looks like following:
 
-  ```php <?php
+  ```php
+  <?php
     route::add(array("path"       => "test",
                      "controller" => "foo",
                      "plugin"     => "bar"));**
@@ -188,7 +194,8 @@ This file contains system required models/classes. I will explain them one for o
   The log model/class is a simple logger class. On default it only logs errors, bug if you change the config flag **"debug"** on **"true"**
   it will log **info** and **warning** too .It contains 3 public methods to be called. These are:
 
-  ```php <?php
+  ```php
+  <?php
     log::info("{msg}")         // To log simple informations , gud for debugging
     log::warning("{msg}")      // To log semi critical informations 
     log::error("{msg}")        // To log critical errors, these will be loged even if conf-debug = false;
