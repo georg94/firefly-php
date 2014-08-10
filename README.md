@@ -6,27 +6,22 @@
 
 ## About
 
-    <pre>
-      A simple and smallweight path routing framework to build any kind of web application. Its Plugin/Helper based so easy to enlarge functionality.
-    </pre>
+      A simple and smallweight path routing framework to build any kind of web application. Its Plugin/Helper based so easy to enlarge functionality
 
 * * *
 
 ## Getting started
 
-    <pre>
       1. Clone the current version of firefly-php from https://github.com/singhtreehouse/firefly-php.git .
       2. Change the **app/config.php** for your needs.
       3. Check out the example controller **app/controller/index/index.php**
       4. Check out the example plugin **app/controller/index/index.php**
-      5. Begin develop .) for further information check the following topics or mail me (singh@devilcode.org) .
-    </pre>
+      5. Begin develop .) for further information check the following topics or mail me (singh@devilcode.org) 
 
 * * *
 
 ## File-Structure
 
-    <pre>
       This part contains a simple overview over our file structure. For further information just scroll down.
 
       **- public/**
@@ -67,13 +62,10 @@
       any type of ressources. Since it is outside the document root you can place even sensitive files into
       it.
 
-    </pre>
-
 * * *
 
 ## config.php
 
-    <pre>
       The **config.php** contains all basic needed system configurations. This includes the base_href ,directory
       paths, database login data , etc.
 
@@ -89,13 +81,10 @@
       PS: If you enable the debug mode (**conf::set("debug",true)**) the logger will log **info** and **warnings** too.
           On default (debug = false) it will only log errors.
 
-    </pre>
-
 * * *
 
 ## bootstrap php
 
-    <pre>
 
       The **bootstrap.php** contains some calls to setup the system and the registration of callable paths.
 
@@ -112,13 +101,10 @@
       it at the end of bootstrap.php. You should be able to call all helpers and access needed paths but are still
       before the execution of your business logic.
 
-    </pre>
-
 * * *
 
 ## models.php
 
-    <pre>
         This file contains system required models/classes. I will explain them one for one in the following:
 
         **conf**
@@ -196,36 +182,29 @@
           **log::warning("{msg}")**      // To log semi critical informations 
           **log::error("{msg}")**        // To log critical errors, these will be loged even if conf-debug = false;
 
-    </pre>
-
 * * *
 
 ## router.php
 
-    <pre>
       The router.php basicly is the core class of our system. It will be inited inside the **public/index.php**. It basicly contains
       the **bootstrap.php** call and initiates the **controller** and **plugin** that are needed for the called path. On
       call it generates a new instance of the registered **plugin** and gives it a new instance of the registered **controller**
-      as __construct() param. 
-    </pre>
+      as __construct() param.
 
 * * *
 
 ## instance.php
 
-    <pre>
         The instance file includes a static class to get instances of your helpers. Its meant as basic for the helpers. It consists
         of two public callable methods:
 
         **helper::getInstance("{helper_to_call}")**        //returns a instance of **{helper_to_call}** wich will be cached and redelivered on same call
-        **helper::getSingleInstance("{helper_to_call}")**  //returns a non-cached instance of **{helper_to_call}** that can be used in its own context.
-    </pre>
+        **helper::getSingleInstance("{helper_to_call}")**  //returns a non-cached instance of **{helper_to_call}** that can be used in its own context
 
 * * *
 
 ## Plugins
 
-    <pre>
       Plugins , or better said frontend plugins are meant to decide what output handling should be used on the data that your **controller** provides.
       It will be inited inside the router and presented to the **controller** as __construct() param. You can change its build-up free since the
       methods just must be standardized to be usefull for all **controllers**.
@@ -251,13 +230,10 @@
         - **api**         //REST api or others
         - **admin**       //backend that checks login state inside the plugin
 
-    </pre>
-
 * * *
 
 ## Controller
 
-    <pre>
       The controller contains your main business logic. You can build it up completly free, besides the fact you need a __construct()
       method that inits the processing including it must accept **plugin**-instance as __construct param.
 
@@ -281,13 +257,10 @@
       In case you have a plugin that needs no further controller code, just create an empty controller that only handles the plugin basic
       output calls and register it to the path you.
 
-    </pre>
-
 * * *
 
 ## Helper
 
-    <pre>
       The helpers are meant to contain code that is used on multiple places. Like in multiple controllers , multiple plugins or simply
       other helpers.
 
@@ -369,5 +342,3 @@
             2. Create a class inside the in 1. created file wich has the
             same naming plus the string **"Mapper"** 
               - **class {name}Mapper { .... }**        //for example: class showsMapper { .... }
-
-    </pre>
