@@ -349,17 +349,15 @@ In our example we gonne create the helper **"upload"**.
     helper::getInstance("dbMapper")->get("shows");
   ```
 
-  Now you can use the **showsMapper** instance to call all methods that include **shows** regarding functions.
+Now you can use the **showsMapper** instance to call all methods that include **shows** regarding functions.
 
-  It's not forced to use this structure but its highly recommended due its efficiency plus (loading only ressources that are needed).
+It's not forced to use this structure but its highly recommended due its efficiency plus (loading only ressources that are needed).
 
-  To create a new Mapper use this instructions:
+To create a new Mapper use this instructions:
 
-  1. Create a file inside the subdirectory **tables/**
-    - **app/helper/dbMapper/tables/{name}Mapper.php**
+1. Create a file inside the subdirectory **tables/**
+  - **app/helper/dbMapper/tables/{name}Mapper.php**
 
-  2. Create a class inside the in 1. created file wich has the
-  same naming plus the string **"Mapper"** 
-    - ```php
-      class {name}Mapper { .... }        //for example: class showsMapper { .... }
-    ```
+2. Create a class inside the in 1. created file wich has the
+same naming plus the string **"Mapper"** 
+  - ```class {name}Mapper { .... } /* for example: class showsMapper { .... } */```
